@@ -54,13 +54,14 @@ def search(pattern: str, text: str):
 
 def main():
 	print("[+] Welcome to 'horspool-algorithm-in-python'")
-	text: str = input("[!]: Type in the text: ")
-	pattern: str = input("[!]: Type in the pattern that you'd like to search for in that text: ")
+	while True:
+		text: str = input("[!]: Type in the text: ")
+		pattern: str = input("[!]: Type in the pattern that you'd like to search for in that text: ")
 
-	index: int = search(pattern, text)
-	if (index == -1):
-		print("[+] The pattern: '", pattern, "' was not found inside the text: '", text, "'")
-	else:
-		print("[+] The pattern: '", pattern, "' was first found at index: ", index)
+		index: int = search(pattern, text)
+		if (index == -1):
+			print("[+] The pattern: '", pattern, "' was not found inside the text: '", text, "'")
+		else:
+			print("[+] The pattern: '", pattern, "' was first found at index: ", index)
 
 main()
