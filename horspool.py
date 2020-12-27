@@ -33,3 +33,21 @@ def generate_shift_table(pattern: str, alphabet: list) -> list:
 		table[position] = m - i - 1
 
 	return table
+
+def search(pattern: str, text: str):
+	m: int = len(pattern)
+	n: int = len(text)
+	table: list = generate_shift_table(pattern, alphabet)
+
+	i: int = m - 1
+	while i <= n - 1:
+		k: int = 0
+		while (k <= m - 1) and (pattern[m - 1 - k] == text[i - k]):
+			k = k + 1
+		if k == m:
+			return i - m + 1
+		else:
+			position: int = alphabet.index(text[i])
+			i = i + table[position]
+
+	return -1
